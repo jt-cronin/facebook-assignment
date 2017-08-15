@@ -3,6 +3,7 @@
 <head>
   <title>Facebook</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
 
@@ -25,16 +26,17 @@
       </div>
 
       <div class="post__actions">
-        <a href="#" class="action action--like">Like</a>
-        <a href="#" class="action action--comment">Comment</a>
-        <a href="#" class="action action--share">Share</a>
+        <a href="#" class="like">Like</a>
+        <a href="#" class="unlike" style="display: none">UnLike</a>
+        <a href="#" class="comment">Comment</a>
+        <a href="#" class="share">Share</a>
       </div>
     </div>
 
     <div class="post__details">
       <div class="post__info">
-        <span>28 likes</span>
-        <span>3 comments</span>
+        <span class="like_count" data-likes= 28 >28 likes</span>
+        <span data-comments="3">3 comments</span>
       </div>
 
       <div class="post__comments">
@@ -47,7 +49,7 @@
 
             <div class="comment__info">
               <a href="#">Like</a>
-              <a href="#">4 replies</a>
+              <a href="#" class="replies_link">4 replies</a>
               <span>2 likes</span>
               Yesterday at 10:00am
             </div>
