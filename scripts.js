@@ -4,7 +4,8 @@ var like = document.getElementsByClassName('like')[0];
 var unlike = document.getElementsByClassName("unlike")[0];
 var likeCount = document.getElementsByClassName("like_count")[0].getAttribute("data-likes");
 likeCount = Number(likeCount);
-var replies_link = document.getElementsByClassName('replies_link')[0];
+var replies_link = document.getElementsByClassName('replies_link');
+
 
 
 like.addEventListener("click", function(){
@@ -21,13 +22,16 @@ unlike.addEventListener("click", function(){
 		document.getElementsByClassName("like_count")[0].innerHTML = "" + likeCount + " likes";
 });
 
-replies_link.addEventListener('click', function(){
-		
-		document.getElementsByClassName('replies')[0].style.display = "inline";
-		
-		
+for(var i = 0; i<replies_link.length; i++){
+replies_link[i].addEventListener('click', function(){
+		if (this.parentNode.nextElementSibling.style.display == "inline") {
+		this.parentNode.nextElementSibling.style.display = "none";
+		}
+		else {
+		this.parentNode.nextElementSibling.style.display = "inline";
+		}
 });
-
+}
 
 
 
