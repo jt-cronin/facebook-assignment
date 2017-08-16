@@ -23,14 +23,14 @@ unlike.addEventListener("click", function(){
 });
 
 for(var i = 0; i<replies_link.length; i++){
-replies_link[i].addEventListener('click', function(){
+	replies_link[i].addEventListener('click', function(){
 		if (this.parentNode.nextElementSibling.style.display == "inline") {
 		this.parentNode.nextElementSibling.style.display = "none";
 		}
 		else {
 		this.parentNode.nextElementSibling.style.display = "inline";
 		}
-});
+	});
 }
 
 
