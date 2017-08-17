@@ -9,7 +9,10 @@ var replies_link = document.getElementsByClassName('replies_link');
 var comment_info = document.getElementsByClassName('comment__info');
 var prof = document.getElementsByClassName('media__info');
 var modal = document.getElementsByClassName('modal')[0];
+var share = document.getElementsByClassName('share')[0];
+//var submit = document.querySelectorAll('input');
 
+//Main like and Unlike Buttons
 like.addEventListener("click", function(){
 		like.style.display = "none";
 		unlike.style.display = "inline";
@@ -24,6 +27,37 @@ unlike.addEventListener("click", function(){
 		document.getElementsByClassName("like_count")[0].innerHTML = "" + likeCount + " likes";
 });
 
+//Moves focus to textarea
+comment.addEventListener('click', function(e){
+	document.querySelector('.commentMain').focus();
+	e.preventDefault();
+});
+
+
+//Shows the modal with profile
+
+for(var i = 0; i<prof.length; i++){
+	prof[i].childNodes[1].addEventListener('click', function(){
+		var friends = 0;
+		if (event.target.tagName != "TEXTAREA"){
+		document.getElementsByClassName("modal__title")[0].innerHTML = "" + event.target.text + "";
+		document.getElementsByClassName("modal__body")[0].innerHTML = "" + event.target.text + " has " + friends + " friends.";
+		modal.style.display = "block";
+	}
+	});
+}
+
+//Shows the modal with share info
+share.addEventListener('click', function(event){
+	var title = event.target.parentNode.previousElementSibling.childNodes[1].innerHTML;
+	var body = event.target.parentNode.previousElementSibling.previousElementSibling.childNodes[3].childNodes[1].innerHTML;
+	document.getElementsByClassName("modal__title")[0].innerHTML = "Share " + title + "'s post";
+	document.getElementsByClassName("modal__body")[0].innerHTML = " " + body + " ";
+	modal.style.display = "block";
+});
+
+
+
 //Closes the modal
 document.getElementsByClassName("modal__close")[0].addEventListener('click', function(){
 	modal.style.display = "none";
@@ -32,27 +66,13 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
-
-//Moves focus to textarea
-comment.onclick = function(event){
-	if (event.target == comment){
-		document.querySelector('textarea').focus();
-	}
 };
 
-//Shows the modal
-for(var i = 0; i<prof.length; i++)
-prof[i].childNodes[1].addEventListener('click', function(){
-		var friends = 0
-		document.getElementsByClassName("modal__title")[0].innerHTML = "" + prof[i].childNodes[1].innerHTML + "";
-		document.getElementsByClassName("modal__body")[0].innerHTML = "" + prof[i].childNodes[1].innerHTML + " has " + friends + " friends.";
-		modal.style.display = "block";
-});
+
 
 //Show Comments
 for(var i = 0; i<comment_info.length; i++){
-	comment_info[i].childNodes[1].addEventListener('click', function(){
+	comment_info[i].childNodes[1].addEventListener('click', function(e){
 		if (this.innerHTML == "Unlike"){
 			this.parentNode.childNodes[5].innerHTML = "2 likes";
 			this.innerHTML = "Like";
@@ -61,22 +81,35 @@ for(var i = 0; i<comment_info.length; i++){
 			this.parentNode.childNodes[5].innerHTML = "3 likes";
 			this.innerHTML = "Unlike";
 		}
+		e.preventDefault();
 	});
 	
 }
 
 // Show Replies
 for(var i = 0; i<replies_link.length; i++){
-	replies_link[i].addEventListener('click', function(){
+	replies_link[i].addEventListener('click', function(e){
 		if (this.parentNode.nextElementSibling.style.display == "inline") {
 		this.parentNode.nextElementSibling.style.display = "none";
 		}
 		else {
 		this.parentNode.nextElementSibling.style.display = "inline";
 		}
+	e.preventDefault();
 	});
 }
 
+
+// Adds new form.
+/*for (var i = 0; i<submit.length; i++){
+	submit[i].addEventListener('click', function(event){
+		if (event.target.previousElementSibling.text = ""{
+			alert("You must type in a comment!");
+		}
+
+	});
+}
+*/
 
 
 

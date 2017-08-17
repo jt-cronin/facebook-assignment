@@ -12,11 +12,11 @@ The overall goal is to implement features that listen for user actions that trig
 		- update the number of likes that the post/comment has
 		- alter the behavior of the link so it behaves as an Unlike link next time it's clicked
 
-### Clicking 'Comment' (in the `post__actions` area) should...
+		### Clicking 'Comment' (in the `post__actions` area) should...
 
-- Move the cursor into the post's main comment form
+		- Move the cursor into the post's main comment form
 
-			### Clicking 'Reply' or 'XX replies' should...
+		### Clicking 'Reply' or 'XX replies' should...
 
 		- show the replies area for that comment
 		- toggle the behavior of the link so that if it's clicked again, it hides the replies area
@@ -32,9 +32,9 @@ The overall goal is to implement features that listen for user actions that trig
 
 		- show the modal window with their name as the title and their number of friends as the body
 
-### Clicking 'Share' should...
+			### Clicking 'Share' should...
 
-- show the modal window with 'Share _____'s post' (fill in the blank with the post owner's name) as the title and the post's content as the modal's body
+		- show the modal window with 'Share _____'s post' (fill in the blank with the post owner's name) as the title and the post's content as the modal's body
 
 			### When the modal is open...
 
