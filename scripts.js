@@ -10,6 +10,7 @@ var comment_info = document.getElementsByClassName('comment__info');
 var prof = document.getElementsByClassName('media__info');
 var modal = document.getElementsByClassName('modal')[0];
 var share = document.getElementsByClassName('share')[0];
+
 //var submit = document.querySelectorAll('input');
 
 //Main like and Unlike Buttons
@@ -51,8 +52,8 @@ for(var i = 0; i<prof.length; i++){
 share.addEventListener('click', function(event){
 	var title = event.target.parentNode.previousElementSibling.childNodes[1].innerHTML;
 	var body = event.target.parentNode.previousElementSibling.previousElementSibling.childNodes[3].childNodes[1].innerHTML;
-	document.getElementsByClassName("modal__title")[0].innerHTML = "Share " + title + "'s post";
-	document.getElementsByClassName("modal__body")[0].innerHTML = " " + body + " ";
+	document.getElementsByClassName("modal__title")[0].innerHTML = "Share " + body + "'s post";
+	document.getElementsByClassName("modal__body")[0].innerHTML = " " + title + " ";
 	modal.style.display = "block";
 });
 
@@ -98,7 +99,14 @@ for(var i = 0; i<replies_link.length; i++){
 	e.preventDefault();
 	});
 }
-
+//Checks if form entry is empty or not
+function validate form () {
+	var x = document.forms["mainform"]["comment"].value;
+    if (x == "") {
+        alert("Comment box must be filled out");
+        return false;
+	}
+};
 
 // Adds new form.
 /*for (var i = 0; i<submit.length; i++){
@@ -109,8 +117,24 @@ for(var i = 0; i<replies_link.length; i++){
 
 	});
 }
+
+When we hit the submit button, we want to add the text that is in the textarea box and
+var postComments = document.getElementsByClassName('post__comments')[0];
+postComments.appendChild();
+and we want it to be in form of 
+<div class="comment media">
+        <img src="images/user.png" class="profilePhoto">
+        <div class="media__info">
+          <a href="#">Name 1</a>
+Here goes the text that we are pulling from the post, so what was submitted     
+          <div class="comment__info">
+            <a href="#">Like</a>
+            <a href="#">Reply</a>
+            <span>2 likes</span>
+            Yesterday at 10:00am
+          </div>
+        </div>
+
 */
-
-
 
 });
