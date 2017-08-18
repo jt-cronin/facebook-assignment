@@ -7,11 +7,10 @@ var likeCount = document.getElementsByClassName("like_count")[0].getAttribute("d
 likeCount = Number(likeCount);
 var replies_link = document.getElementsByClassName('replies_link');
 var comment_info = document.getElementsByClassName('comment__info');
-var prof = document.getElementsByClassName('media__info');
+var prof = document.getElementsByClassName('profName');
 var modal = document.getElementsByClassName('modal')[0];
 var share = document.getElementsByClassName('share')[0];
-
-//var submit = document.querySelectorAll('input');
+var submit = document.querySelector('button');
 
 //Main like and Unlike Buttons
 like.addEventListener("click", function(){
@@ -38,9 +37,9 @@ comment.addEventListener('click', function(e){
 //Shows the modal with profile
 
 for(var i = 0; i<prof.length; i++){
-	prof[i].childNodes[1].addEventListener('click', function(){
+	prof[i].addEventListener('click', function(){
 		var friends = 0;
-		if (event.target.tagName != "TEXTAREA"){
+		if (event.target.tagName != "FORM"){
 		document.getElementsByClassName("modal__title")[0].innerHTML = "" + event.target.text + "";
 		document.getElementsByClassName("modal__body")[0].innerHTML = "" + event.target.text + " has " + friends + " friends.";
 		modal.style.display = "block";
@@ -100,13 +99,18 @@ for(var i = 0; i<replies_link.length; i++){
 	});
 }
 //Checks if form entry is empty or not
-function validate form () {
-	var x = document.forms["mainform"]["comment"].value;
-    if (x == "") {
+submit.addEventListener('click', function(event){
+	var x = document.getElementsByClassName('commentMain').value;
+	x.submit();
+    if (x == undefined) {
         alert("Comment box must be filled out");
-        return false;
-	}
-};
+        event.preventDefault();
+    }
+    else {
+    	alert(x);
+    }
+
+});
 
 // Adds new form.
 /*for (var i = 0; i<submit.length; i++){

@@ -23,7 +23,7 @@ The overall goal is to implement features that listen for user actions that trig
 
 ### Submitting a comment form should...
 
-		- raise an `alert()` error if nothing has been typed into the textarea
+			- raise an `alert()` error if nothing has been typed into the textarea
 - update the number of comments/replies
     - This includes changing the text of what used to be a 'Reply' link to now read, '1 replies' (or '1 reply', if you're ambitious).
 - add the comment to the correct location in the comments area
