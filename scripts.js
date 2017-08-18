@@ -100,44 +100,46 @@ for(var i = 0; i<replies_link.length; i++){
 }
 //Checks if form entry is empty or not
 submit.addEventListener('click', function(event){
-	var x = document.getElementsByClassName('commentMain').value;
-	x.submit();
-    if (x == undefined) {
+	var x = document.getElementsByClassName('commentMain')[0].value;
+	// debugger
+    if (x == "") {
         alert("Comment box must be filled out");
         event.preventDefault();
     }
     else {
-    	alert(x);
+    	postComments = document.getElementsByClassName('post__comments')[0];
+
+    	var newNode = document.createElement("div");
+    	newNode.innerHTML = "<div class='comment media'>" +
+								"<img src='images/user.png' class='profilePhoto'>" +
+								"<div class='media__info'>" +
+									"<a href='#' class='profName'>Name 1 </a>" +
+									x +
+									"<div class='comment__info'>" +
+										"<a href='#'>Like </a>" +
+										"<a href='#'>Reply </a>" +
+										"<span>2 likes</span>" +
+										"Yesterday at 10:00am" +
+									"</div>" +
+								"</div>" +
+							"</div>";
+    	// newNode.classList.add("comment")
+    	// newNode.classLis
+    	// newNode.comment.innerHTML = "<p>Here is new paragraph</p>"
+    	
+        postComments.appendChild(newNode);
+    	event.preventDefault();
+    	document.getElementsByClassName('commentMain')[0].value = "";
     }
 
 });
-
-// Adds new form.
-/*for (var i = 0; i<submit.length; i++){
-	submit[i].addEventListener('click', function(event){
-		if (event.target.previousElementSibling.text = ""{
-			alert("You must type in a comment!");
-		}
-
-	});
-}
+/*
 
 When we hit the submit button, we want to add the text that is in the textarea box and
 var postComments = document.getElementsByClassName('post__comments')[0];
 postComments.appendChild();
 and we want it to be in form of 
-<div class="comment media">
-        <img src="images/user.png" class="profilePhoto">
-        <div class="media__info">
-          <a href="#">Name 1</a>
-Here goes the text that we are pulling from the post, so what was submitted     
-          <div class="comment__info">
-            <a href="#">Like</a>
-            <a href="#">Reply</a>
-            <span>2 likes</span>
-            Yesterday at 10:00am
-          </div>
-        </div>
+
 
 */
 
