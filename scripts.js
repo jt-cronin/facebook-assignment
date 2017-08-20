@@ -101,6 +101,7 @@ for(var i = 0; i<replies_link.length; i++){
 //Checks if form entry is empty or not
 submit.addEventListener('click', function(event){
 	var x = document.getElementsByClassName('commentMain')[0].value;
+	var y = 3;
 	// debugger
     if (x == "") {
         alert("Comment box must be filled out");
@@ -130,6 +131,10 @@ submit.addEventListener('click', function(event){
         postComments.appendChild(newNode);
     	event.preventDefault();
     	document.getElementsByClassName('commentMain')[0].value = "";
+    	numComments = document.getElementsByClassName("comment_count")[0];
+    	y += 1;
+    	numComments.innerHTML = "" + y + " comments"
+
     }
 
 });
